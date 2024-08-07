@@ -48,7 +48,7 @@ $('#updatepost').click(function () {
         }),
         success: function (result) {
             console.log(result);
-            alert("Post updated successfully!");
+            alert("updated successfully!");
         },
         error: function (error) {
             console.log(error);
@@ -56,6 +56,28 @@ $('#updatepost').click(function () {
         }
     });
 });
+
+$('#deletepost').click(function () {
+    let postId = $('#post-id').val();
+
+    $.ajax({
+        url: "http://localhost:8080/blog/deletepost/" + postId,
+        method: "DELETE",
+        contentType: "application/json",
+        success: function (result) {
+            console.log(result);
+            alert("deleted successfully!");
+        },
+        error: function (error) {
+            console.log(error);
+            alert("Failed to delete the post.");
+        }
+    });
+});
+
+
+
+
 
 
 

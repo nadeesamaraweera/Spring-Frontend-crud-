@@ -1,17 +1,75 @@
 <html>
 <head>
     <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
 </head>
 
 
 <body>
   <main>
-      <section>
+<!--      nav bar-->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Link</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown
+                          </a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                          </ul>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                      </li>
+                  </ul>
+<!--                  -->
+              </div>
+          </div>
+      </nav>
+
+<!--      form-->
+
+      <section class="container">
+          <div class="mb-3">
+              <label for="post-id" class="form-label">Post Id</label>
+              <input type="text" class="form-control" id="post-id" placeholder="enter your new post id">
+          </div>
+          <div class="mb-3">
+              <label for="post-title" class="form-label">Post Title </label>
+              <input type="text" class="form-control" id="post-title" placeholder="enter your new post title">
+          </div>
+
+          <div class="mb-3">
+              <label for="post-content" class="form-label">Post Content </label>
+              <input type="text" class="form-control" id="post-content" placeholder="enter your new post content">
+          </div>
+
+          <button type="button" class="btn btn-info">Save Post</button>
+          <button type="button" class="btn btn-info">Update Post</button>
+          <button type="button" class="btn btn-info">Delete Post</button>
+          <button type="button" class="btn btn-info">Get All Post</button>
+
 
       </section>
 
   </main>
   <footer></footer>
-<script src="/JS/script.js"></script>
+  <script src="/JS/script.js"></script>
+  <script src="/JS/bootstrap.min.js"></script>
 </body>
 </html>

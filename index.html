@@ -1,4 +1,4 @@
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
@@ -60,12 +60,29 @@
           </div>
 
           <button type="button" class="btn btn-info" id="savepost">Save Post</button>
-          <button type="button" class="btn btn-info">Update Post</button>
-          <button type="button" class="btn btn-info">Delete Post</button>
-          <button type="button" class="btn btn-info">Get All Post</button>
+          <button type="button" class="btn btn-info" id="updatepost">Update Post</button>
+          <button type="button" class="btn btn-info" id="deletepost">Delete Post</button>
+          <button type="button" class="btn btn-info" id="getallpost">Get All Post</button>
 
 
+
+
+      <table class="table table-striped mt-5" id="postTable">
+          <thead>
+          <tr>
+              <th>Post Id</th>
+              <th>Post Title</th>
+              <th>Post Content</th>
+              <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <!-- Rows will be dynamically populated here -->
+          </tbody>
+      </table>
       </section>
+
+
 
   </main>
   <footer></footer>

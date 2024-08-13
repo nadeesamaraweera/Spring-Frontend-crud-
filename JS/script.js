@@ -78,7 +78,76 @@ $('#deletepost').click(function () {
 
 
 
+//------------------------------
+
+$(document).ready(function() {
+    // Function to get all posts and populate the table
+    function getAllPosts() {
+        // Assuming you're fetching data from a server API, replace the URL with your actual endpoint
+        $.ajax({
+            url: 'http://localhost:8080/blog/getallpost', // Replace with your API endpoint
+            method: 'GET',
+            success: function(data) {
+                var tbody = $('#postTable tbody');
+                tbody.empty(); // Clear existing rows
+
+                data.forEach(function(post) {
+                    var row = `<tr>
+                        <td>${post.id}</td>
+                        <td>${post.title}</td>
+                        <td>${post.content}</td>
+                        <td>
+                            <button class="btn btn-warning edit-post" data-id="${post.id}">Edit</button>
+                            <button class="btn btn-danger btn-sm delete-post" data-id="${post.id}">Delete</button>
+                        </td>
+                    </tr>`;
+                    tbody.append(row);
+                });
+            },
+            error: function(error) {
+                console.error('Error fetching posts:', error);
+            }
+        });
+    }
+
+    // Attach click event to Edit buttons
+    $('.edit-post').click(function() {
+        const postId = $(this).data('id');
+        $.ajax({
+            url: `http://localhost:8080/blog/updatepost/${postId}`,
+            method: 'GET',
+            success: function(post) {
+                $('#post-id').val(post.id);
+                $('#post-title').val(post.title);
+                $('#post-content').val(post.content);
+                $('#updatepost').data('id', post.id); // Store post ID in the update button
+            },
+            error: function(error) {
+                console.error('Error fetching post:', error);
+            }
+        });
+    });
+
+    // Function to handle post deletion
+    $(document).on('click', '.delete-post', function() {
+        var postId = $(this).data('id');
+        // Replace with your delete API endpoint
+        $.ajax({
+            url: `http://localhost:8080/blog/deletepost/${postId}`, // Replace with your API endpoint
+            method: 'DELETE',
+            success: function() {
+                getAllPosts(); // Refresh the table after deletion
+            },
+            error: function(error) {
+                console.error('Error deleting post:', error);
+            }
+        });
+    });
 
 
 
-
+    // Initialize the table with all posts
+    $('#getallpost').click(function() {
+        getAllPosts();
+    });
+});
